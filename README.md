@@ -10,7 +10,6 @@ Função utilitária em JavaScript para padronizar requisições AJAX com jQuery
 * ✔️ POST com FormData (upload de arquivos + parâmetros).
 * ✔️ Callback de sucesso e erro.
 * ✔️ Controle de envio síncrono ou assíncrono.
-* ✔️ Tratamento automático de CSRF (Django) se aplicavel.
 
 ## 📖 Descrição da Função
 
@@ -37,7 +36,6 @@ function submit_ajax(form, endpoint, metodo, only_data=true, async=true, onSucce
 
 A função prepara um objeto ajaxOptions contendo:
 * URL e método
-* Token CSRF obtido automaticamente
 * Tipo de resposta (JSON)
 * Callbacks de sucesso e erro
 * Configuração de envio dependendo do valor de only_data
