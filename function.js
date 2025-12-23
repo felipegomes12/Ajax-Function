@@ -1,10 +1,8 @@
 function submit_ajax(form, endpoint, metodo, only_data=true, async=true, onSuccess=null, onError=null) {
     
-    var csrfToken = $('input[name=csrfmiddlewaretoken]').val();
     var ajaxOptions = {
         url: endpoint,
         type: metodo,
-        headers: {'X-CSRFToken': csrfToken},
         dataType: 'json',
         data: form,
         async: async,
@@ -12,19 +10,15 @@ function submit_ajax(form, endpoint, metodo, only_data=true, async=true, onSucce
             if (onSuccess) {
                 onSuccess(response);
             } else {
-                // console.log(response);
+                console.log(response); // <--------- ATENÇÃO em produção os logs devem ser comentados ou apagados por segurança
             }
         },
         error: function(error) {
-            mostrar_erro(error)
-            var load_scream = document.getElementById('load_scream')
-            if (!load_scream.classList.contains('hidden')) {
-                load_scream.classList.add('hidden')
-            }
+
             if (onError) {
                 onError(error);
             } else {
-                // console.log(error);
+                console.log(error); // <--------- ATENÇÃO em produção os logs devem ser comentados ou apagados por segurança
             }
         }
     };
